@@ -1,0 +1,96 @@
+
+.message {
+    padding: 20px 70px 20px 70px;
+    display: flex;
+    justify-content: end;
+}
+
+.imageAndText {
+    display: flex;
+    align-items:center;
+    position: relative;
+}
+
+.imageAndText img {
+    width: 48px;
+    height: 48px;
+}
+
+.text {
+    
+    
+    /* margin-right: 15px; */
+    box-sizing: border-box;
+    text-align: right;
+    text-align: justify;
+    padding: 10px;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+    /* position: fixed; */
+    min-height: 60px;
+    min-width: 20px;
+    /* max-width: 60vw; */
+    /* max-width: 50vw; */
+    /* right: 200px; */
+    /* bottom: 200px; */
+    border-radius: 20px;
+    border-bottom-right-radius: 0;
+    margin: 8px 15px 8px 0;
+    font-size: 14px;
+    /* line-height: 1.5em; */
+    position: relative;
+
+
+    background: #0066CC;
+    background-size: 100vw 100vh;
+    background-position-y: 100vh;
+    background-attachment: fixed;
+}
+
+.text:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -20px;
+    display: block;
+    height: 20px;
+    width: 20px;
+    z-index: 1;
+    background: inherit;
+    clip-path: url(#svgPath);
+    /* transform: rotateY(180deg); */
+}
+
+.name {
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.messageText {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+
+}
+
+.time {
+    position: absolute;
+    bottom: 0;
+    right: 9px;
+
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+
+    color: #000000;
+}
+
+
+
