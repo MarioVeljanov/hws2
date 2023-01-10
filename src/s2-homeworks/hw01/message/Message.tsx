@@ -26,19 +26,21 @@ const Message = (props: MessagePropsType) => {
               {/**/}
             </pre>
           </div>
+          
+            <img
+              src={props.message.user.avatar}
+              id={"hw1-avatar-" + props.message.id}
+              // создаёт студент
 
-          <img
-            src={props.message.user.avatar}
-            id={"hw1-avatar-" + props.message.id}
-            // создаёт студент
+              //
+            />
 
-            //
-          />
-          <div id={"hw1-time-" + props.message.id} className={s.time}>
-            {props.message.message.time}
+            <div id={"hw1-time-" + props.message.id} className={s.time}>
+              {props.message.message.time}
 
-            {/**/}
-          </div>
+              {/**/}
+            </div>
+          
         </div>
 
         <svg height="0" width="0">
