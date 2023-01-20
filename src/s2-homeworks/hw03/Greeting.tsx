@@ -1,16 +1,17 @@
-import React, {ChangeEvent, KeyboardEvent} from 'react'
+import React, {ChangeEvent, ClassAttributes, KeyboardEvent} from 'react'
 import s from './Greeting.module.css'
+import { UserType } from './HW3';
 
 type GreetingPropsType = {
-    name: string // need to fix any
-    setNameCallback: (e: ChangeEvent<HTMLInputElement>) => void // need to fix any
-    addUser: () => void // need to fix any
-    onBlur: () => void // need to fix any
-    onEnter: (e: KeyboardEvent<HTMLInputElement>) => void  // need to fix any
-    error: string // need to fix any
-    totalUsers: number // need to fix any
-    lastUserName?: any // need to fix any
-}
+  name: string; // need to fix any
+  setNameCallback: (e: ChangeEvent<HTMLInputElement>) => void; // need to fix any
+  addUser: () => void; // need to fix any
+  onBlur: () => void; // need to fix any
+  onEnter: (e: KeyboardEvent<HTMLInputElement>) => void; // need to fix any
+  error: string; // need to fix any
+  totalUsers: number; // need to fix any
+  lastUserName?: Array<UserType>; // need to fix any
+};
 
 // презентационная компонента (для верстальщика)
 const Greeting: React.FC<GreetingPropsType> = (
@@ -64,7 +65,7 @@ const Greeting: React.FC<GreetingPropsType> = (
 
             {lastUserName && (
                 <div className={s.greeting}>
-                     <span id={'hw3-last-user'}>{lastUserName}</span>
+                    <span id={'hw3-last-user'}>{lastUserName.map((user) => <li key={user._id}>Привет {user.name}!</li>)}</span>
                 </div>
             )}
         </div>

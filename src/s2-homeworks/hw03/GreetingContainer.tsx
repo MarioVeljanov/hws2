@@ -20,7 +20,7 @@ export const pureAddUser = (name: string, setError: (error: string) => void, set
     // если имя пустое - показать ошибку, иначе - добавить юзера и очистить инпут
 }
 
-export const pureOnBlur = (name: any, setError: (error: string) => void) => { // если имя пустое - показать ошибку
+export const pureOnBlur = (name: string, setError: (error: string) => void) => { // если имя пустое - показать ошибку
     if (name.trim() === "") {
       setError("Ошибка! Введите имя!");
     }
@@ -62,13 +62,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     }
     
     const totalUsers =  Object.keys(users).length // need to fix
-    const lastUserName =  users.map((user) => {
-        
-          return(
-          <li>Привет {user.name}!</li>
-          )
-       ;
-    }) //'some name' // need to fix
+    const lastUserName =  users //'some name' // need to fix
 
     return (
         <Greeting
