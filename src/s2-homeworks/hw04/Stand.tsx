@@ -75,7 +75,7 @@ const Stand = () => {
             </div>
 
             <div className={s.checkboxes}>
-                {/*чекбокс с текстом:*/}
+                {/* чекбокс с текстом: */}
                 <div>
                     <SuperCheckbox
                         id={'hw4-super-checkbox-with-text'}

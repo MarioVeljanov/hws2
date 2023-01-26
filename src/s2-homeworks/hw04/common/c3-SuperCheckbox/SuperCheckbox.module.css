@@ -31,7 +31,7 @@
     appearance: none;
 
     background-image: url('checked.svg');
-    /*background: #99ff99;*/
+    /* background: #99ff99; */
 }
 
 .checkbox:focus {
