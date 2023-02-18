@@ -1,2 +1,7 @@
 .container {
+    width: 320px;
+    height: 336px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 34px;
 }

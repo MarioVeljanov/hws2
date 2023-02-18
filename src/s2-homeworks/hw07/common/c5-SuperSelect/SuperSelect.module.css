@@ -1,9 +1,26 @@
 .select {
+    width: 165px;
+    height: 24px;
+    
+    background: #FFFFFF;
+    border: 1px solid #C2C2C2;
+    padding-left: 10px;
+    color: #000;
+
+
+
 }
 
+.select option {
+    border: none;
+}
+
+
 .select:focus {
+    outline: none;
 }
 
 
 .option:hover {
+    color: #dbdbdb;
 }
