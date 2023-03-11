@@ -5,10 +5,10 @@
 
 .hw {
 
+    
     border-top: 1px solid #D9D9D9;
     border-bottom: 1px solid #D9D9D9;
-    padding-left: 70px;
-    padding-right: 70px;
+    padding: 50px 70px 50px 70px;
 }
 
 .hwTitle {

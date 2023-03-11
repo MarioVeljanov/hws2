@@ -1,3 +1,15 @@
 .loader {
     /*свг и/или анимация*/
+    width: 100px;
+    height: 100px;
+    border: 15px solid rgba(82, 190, 176, .6);
+    border-radius: 50%;
+    border-left-color: #52beb0;
+    animation: loader 1.3s linear infinite;
+}
+
+@keyframes loader {
+    100% {
+        transform: rotate(360deg);
+    }
 }
