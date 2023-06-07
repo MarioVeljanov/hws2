@@ -15,13 +15,13 @@ import {useSearchParams} from 'react-router-dom'
 
 const getTechs = (find: string) => {
     return axios
-        .get<{ techs: string[] }>(
-            'https://incubator-personal-page-back.herokuapp.com/api/3.0/homework/test2',
-            {params: {find}}
-        )
-        .catch((e) => {
-            alert(e.response?.data?.errorText || e.message)
-        })
+      .get<{ techs: string[] }>(
+        "https://samurai.it-incubator.io/api/3.0/homework/test2",
+        { params: { find } }
+      )
+      .catch((e) => {
+        alert(e.response?.data?.errorText || e.message);
+      });
 }
 
 const HW14 = () => {
@@ -35,21 +35,25 @@ const HW14 = () => {
         getTechs(value)
             .then((res) => {
                 // делает студент
-
                 // сохранить пришедшие данные
-
                 //
+                if(res) {
+                    setTechs(res.data.techs);
+                    setLoading(false);
+                }
             })
     }
 
     const onChangeText = (value: string) => {
         setFind(value)
+        setSearchParams(`value=${value}`);
         // делает студент
 
         // добавить/заменить значение в квери урла
         // setSearchParams(
 
         //
+        
     }
 
     useEffect(() => {
