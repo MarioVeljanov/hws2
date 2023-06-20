@@ -69,15 +69,16 @@ const HW15 = () => {
         if(typeof newPage === 'number' ) {
             searchParams.delete("page");
             setSearchParams((p) =>
-              p.has("sort") ? `${p}&page=${newPage}` : `page=${newPage}`
+              p.has("sort") || p.has('select') ? `${p}&page=${newPage}` : `page=${newPage}`
             );
             setPage(newPage)
             sendQuery({ page: newPage });
         }
 
         if(typeof newCount === 'number') {
-            setCount(newCount)
-            sendQuery({ count: newCount });
+          setCount(newCount);
+          sendQuery({ count: newCount });
+          setSearchParams(`select=${newCount}`)
         }
             
 
@@ -97,11 +98,11 @@ const HW15 = () => {
         debugger
         // делает студент
         setSort(newSort)
-        sendQuery({ sort: newSort });
+        sendQuery({ sort: newSort, count: count });
         if(newSort) {
             searchParams.delete("sort");
             setSearchParams((p) =>
-              p.has("page") ? `${p}&sort=${newSort}` : `sort=${newSort}`
+              p.has("page") || p.has('select') ? `${p}&sort=${newSort}` : `sort=${newSort}`
             );
         } else {
             searchParams.delete("sort");
