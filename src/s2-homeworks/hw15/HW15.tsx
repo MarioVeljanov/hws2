@@ -29,13 +29,13 @@ type ParamsType = {
 
 const getTechs = (params: ParamsType) => {
     return axios
-        .get<{ techs: TechType[], totalCount: number }>(
-            'https://incubator-personal-page-back.herokuapp.com/api/3.0/homework/test3',
-            {params}
-        )
-        .catch((e) => {
-            alert(e.response?.data?.errorText || e.message)
-        })
+      .get<{ techs: TechType[]; totalCount: number }>(
+        "https://samurai.it-incubator.io/api/3.0/homework/test3",
+        { params }
+      )
+      .catch((e) => {
+        alert(e.response?.data?.errorText || e.message);
+      });
 }
 
 const HW15 = () => {
@@ -51,6 +51,11 @@ const HW15 = () => {
         setLoading(true)
         getTechs(params)
             .then((res) => {
+                if(res) {
+                    setTechs(res.data.techs);
+                    setTotalCount(res.data.totalCount)
+                    setLoading(false)
+                }
                 // делает студент
 
                 // сохранить пришедшие данные
@@ -60,6 +65,23 @@ const HW15 = () => {
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
+        // console.log('newpage:', newPage, 'newCount:', newCount);
+        if(typeof newPage === 'number' ) {
+            searchParams.delete("page");
+            setSearchParams((p) =>
+              p.has("sort") ? `${p}&page=${newPage}` : `page=${newPage}`
+            );
+            setPage(newPage)
+            sendQuery({ page: newPage });
+        }
+
+        if(typeof newCount === 'number') {
+            setCount(newCount)
+            sendQuery({ count: newCount });
+        }
+            
+
+        // sendQuery({ page: newCount });
         // делает студент
 
         // setPage(
@@ -72,8 +94,19 @@ const HW15 = () => {
     }
 
     const onChangeSort = (newSort: string) => {
+        debugger
         // делает студент
-
+        setSort(newSort)
+        sendQuery({ sort: newSort });
+        if(newSort) {
+            searchParams.delete("sort");
+            setSearchParams((p) =>
+              p.has("page") ? `${p}&sort=${newSort}` : `sort=${newSort}`
+            );
+        } else {
+            searchParams.delete("sort");
+           setSearchParams((p) => p); 
+        }
         // setSort(
         // setPage(1) // при сортировке сбрасывать на 1 страницу
 
